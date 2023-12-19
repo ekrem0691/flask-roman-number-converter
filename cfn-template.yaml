@@ -42,11 +42,12 @@ Resources:
         dnf install python3-pip -y
         pip3 install flask
         dnf install git -y
-        FOLDER="https://raw.githubusercontent.com/ekrem0691/flask-roman-number-converter/main/templates"
+        FOLDER="
+        https://raw.githubusercontent.com/ekrem0691/flask-roman-number-converter/main"
         cd /home/ec2-user
-        wget -P templates ${FOLDER}/index.html
-        wget -P templates ${FOLDER}/result.html
-        wget https://raw.githubusercontent.com/awsdevopsteam/roman-number-conventor/master/roman-numerals-converter-app.py
+        wget -P templates ${FOLDER}/templates/index.html
+        wget -P templates ${FOLDER}/templates/result.html
+        wget ${FOLDER}/roman-numerals-converter-app.py
         python3 roman-numerals-converter-app.py
 
 
@@ -70,10 +71,9 @@ Resources:
           CidrIp: 0.0.0.0/0
   
 Outputs: 
-  
-
-
-
-
-
+  WebsiteURL:
+    Value: !Sub 
+      - http://${PIA}
+      - PIA: !GetAtt WebServerHost.PublicDnsName
+    Description: Roman Numerals Converter Application URL
 
