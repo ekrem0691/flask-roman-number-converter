@@ -23,7 +23,7 @@ Parameters:
     Description: Choose your keypair?
     Type: AWS::EC2::KeyPair::KeyName
 Resources:
-
+  
   WebServerHost:
     Type: AWS::EC2::Instance
     Properties:
