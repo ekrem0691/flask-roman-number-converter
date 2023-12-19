@@ -19,9 +19,12 @@ Parameters:
       - t2.micro
       - t3.micro
       - t2.large
-  ParameterName:
+  KeyName:
     Description: Choose your keypair?
     Type: AWS::EC2::KeyPair::KeyName
+
+
+
 Resources:
   
   WebServerHost:
